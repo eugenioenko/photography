@@ -1,0 +1,31 @@
+/**
+* Typography
+*/
+@import url('https://fonts.googleapis.com/css?family=KoHo:300,400,500,700');
+
+body{
+    color: $font-color;
+    background-color: $body-background-color;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    -webkit-font-smoothing: antialiased;
+}
+
+.sdf-paragraph{
+    margin: $font-paragraph-margin;
+    line-height: 1.6;
+    font-size: $font-paragraph-size;
+    max-width: $font-paragraph-max-width;
+}
+h1, h2, h3, h4 {
+    margin: $font-heading-margin;
+    font-weight: $font-heading-weight;
+}
+p{
+    margin-top: 0;
+}
+h1, .sdf-heading-1{ font-size: $font-heading-h1-font-size; }
+h2, .sdf-heading-2{ font-size: $font-heading-h2-font-size; }
+h3, .sdf-heading-3{ font-size: $font-heading-h3-font-size; }
+h4, .sdf-heading-4{ font-size: $font-heading-h4-font-size; }
+small { font-size: $font-size-small; }

@@ -1,0 +1,84 @@
+/**
+ * SDF grid
+ */
+.sdf-grid{
+    @include sdf-flex();
+    @include sdf-flex-flow-row-wrap();
+    @include sdf-vertical-stretch();
+    margin: 0;
+    padding: 0 5px;
+    &.sdf-fixed{
+        margin: 0 auto;
+        // generating fixed grid sizes
+        @each $breakpoint in $grid{
+            @if map-get($breakpoint, width) != null {
+                @media (min-width: map-get($breakpoint, media)){
+                    width: map-get($breakpoint, width);
+                }
+            }
+        }
+    }
+}
+
+.sdf-cell{
+    position: relative;
+    padding: 5px;
+    overflow: hidden;
+}
+.sdf-cell, .sdf-col{
+    &>.sdf-grid{
+        margin: -2px;
+    }
+    &.sdf-grid{
+        padding: 0;
+        @include sdf-content-between();
+    }
+}
+
+.sdf-df-auto{
+    flex: 1 1 $auto-min-width;
+}
+@media (max-width: $media-max-df){
+    .sdf-auto{
+        width: 100%;
+    }
+}
+@media (min-width: $media-min-xs){
+    .sdf-auto{
+        flex: 1 1 $auto-min-width;
+    }
+}
+
+@mixin  grid-media($type, $cols-count){
+    @if $type != null {
+        .sdf-#{$type}-auto{
+            flex: 1 1 $auto-min-width;
+        }
+    }
+    @for $i from 1 through $cols-count {
+        @if $type == null {
+            .sdf-#{$i}{
+                width: #{percentage($i / $cols-count)};
+            }
+            .sdf-offset-#{$i}{
+                margin-left: #{percentage($i / $cols-count)};
+            }
+        } @else {
+            .sdf-#{$type}-#{$i}{
+                width: #{percentage($i / $cols-count)};
+            }
+            .sdf-offset-#{$type}-#{$i}{
+                margin-left: #{percentage($i / $cols-count)};
+            }
+        }
+    }
+}
+
+// generates default cell sizes;
+@include grid-media(null, $grid-cols);
+// generates all the cell sizes for each breakpoint (except default)
+@each $breakpoint in $grid{
+    @media (min-width: map-get($breakpoint, media)){
+        @include grid-media(map-get($breakpoint, prefix), map-get($breakpoint, cols));
+    }
+}

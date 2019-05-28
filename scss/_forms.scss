@@ -1,0 +1,199 @@
+/**
+ * Forms
+ */
+.sdf-input{
+    display: block;
+    width: 100%;
+    font-family: $font-family;
+    padding: 0  size-get(normal, padding);
+    font-size: size-get(normal, font-size);
+    color: color-get(default, font);
+    background-color: color-get(default, background);
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+    border-radius: $input-border-radius;
+    will-change: border-color, outline-color;
+    transition: border-color 350ms ease-in-out, box-shadow 250ms ease-in-out;
+    overflow: hidden;
+    outline: 1px solid transparent;
+    margin: 0;
+    &:focus{
+        border-color: color-get(primary, background);
+        box-shadow: none;
+        outline: none;
+    }
+    &[disabled]{
+        background-color: color-get(default, background);
+    }
+    @include input-placeholder(color-get(default, contrast));
+}
+input.sdf-input,
+select.sdf-input{
+    //line-height: size-get(normal, height);
+    line-height: 1;
+    height: size-get(normal, height);
+
+}
+
+textarea.sdf-input{
+    line-height: 1.2;
+    padding: size-get(normal, padding);
+    min-height: size-get(normal, height) * 2;
+    overflow-y: auto;
+    @each $size in $size-types{
+        &.sdf-#{$size}{
+            padding: size-get($size, padding);
+            font-size: size-get($size, font-size);
+        }
+    }
+}
+// form group
+.sdf-form-group{
+    display: block;
+    margin-bottom: size-get(normal, height) / 2;
+
+    label{
+        display: inline-block;
+        font-weight: $forms-font-weight;
+        font-size: size-get(normal, font-size);
+    }
+
+    label + .sdf-input,
+    label + .sdf-input-group,
+    label + .sdf-form-group,
+    label + .sdf-fieldset{
+        margin-top: size-get(normal, padding);
+        @each $size in $size-types{
+            &.sdf-#{$size}{
+                margin-top: size-get($size, font-size) / 2;
+            }
+        }
+    }
+}
+.sdf-form{
+    margin-bottom: 0;
+    &>.sdf-form-group:last-child{
+        margin-bottom: 0;
+    }
+    &>.sdf-form-group:first-child{
+        margin-top: 0;
+    }
+}
+.sdf-form.sdf-grid{
+    padding-left: $grid-gutter/4;
+    padding-right: $grid-gutter/4;
+    &>.sdf-form-group.sdf-cell{
+        padding-left: $grid-gutter/4;
+        padding-right: $grid-gutter/4;
+    }
+}
+
+
+// form input fieldset
+.sdf-fieldset{
+    @include sdf-flex();
+    @include sdf-flex-flow-column-wrap();
+    margin: 0;
+    padding: 0;
+    border-radius: $input-border-radius;
+    &>*{
+        border-radius: 0;
+        &:focus{
+            z-index: 1;
+        }
+    }
+    &>*:first-child{
+        border-top-left-radius: $input-border-radius;
+        border-top-right-radius: $input-border-radius;
+    }
+    &>*:last-child{
+        border-bottom-left-radius: $input-border-radius;
+        border-bottom-right-radius: $input-border-radius;
+    }
+    &>*:not(:first-child){
+        margin-top: -1px;
+    }
+}
+
+.sdf-input-group{
+    @include sdf-flex();
+    @include sdf-flex-flow-row-nowrap();
+    @include sdf-vertical-center();
+    &>.sdf-input{
+        &:focus{
+            z-index: 1;
+        }
+    }
+    .sdf-addon{
+        background-image: $button-background-image;
+        border-left: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+        border-top: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+        border-bottom: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+        height: size-get(normal, height);
+    }
+    &>*:first-child:not(.sdf-input){
+        border-left: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+        border-top: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+        border-bottom: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+    }
+    &>*:last-child:not(.sdf-input){
+        border-right: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+        border-top: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+        border-bottom: 1px solid  rgba(color-get(default, contrast), $forms-border-opacity);
+    }
+    &>*{
+        border-radius: 0;
+    }
+    &>*:first-child{
+        border-top-left-radius: $input-border-radius;
+        border-bottom-left-radius: $input-border-radius;
+    }
+    &>*:last-child{
+        border-top-right-radius: $input-border-radius;
+        border-bottom-right-radius: $input-border-radius;
+    }
+    &>.sdf-input+.sdf-addon:not(:first-child){
+        border-left: 0;
+    }
+
+    &>.sdf-addon:not(:last-child){
+        border-right: 0;
+    }
+}
+.sdf-fieldset{
+    &>.sdf-input-group:not(:first-child):not(:last-child){
+        &>*{
+            border-radius: 0;
+        }
+    }
+    &>.sdf-input-group:first-child{
+        &>*{
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+    &>.sdf-input-group:last-child{
+        &>*{
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+    }
+}
+
+
+
+
+.sdf-form-horizontal{
+    .sdf-form-group{
+        @include sdf-flex();
+        @include sdf-flex-flow-row-nowrap();
+        @include sdf-vertical-center();
+        label{
+            flex: 1 0 auto;
+            margin-bottom: 0;
+            margin-right: $grid-gutter/2;
+            text-align: right;
+        }
+    }
+}

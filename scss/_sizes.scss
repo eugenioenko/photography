@@ -1,0 +1,60 @@
+// addon sizes
+@each $size in $size-types{
+	.sdf-list-group.sdf-#{$size}, .sdf-input-group.sdf-#{$size},
+	.sdf-form-group.sdf-#{$size}  .sdf-list-group,
+	.sdf-form-group.sdf-#{$size}  .sdf-input-group,
+	.sdf-form.sdf-#{$size}  .sdf-list-group,
+	.sdf-form.sdf-#{$size}  .sdf-input-group{
+        &>.sdf-addon{
+            height: size-get($size, height);
+            min-width: size-get($size, height);
+            font-size: size-get($size, font-size);
+        }
+    }
+}
+// button sizes
+.sdf-button{
+    @each $size in $size-types{
+        &.sdf-#{$size}{
+            height: size-get($size, height);
+            //line-height: size-get($size, height);
+            min-width: size-get($size, min-width);
+            padding: 0 size-get($size, padding);
+            font-size: size-get($size, font-size);
+        }
+    }
+}
+
+
+@each $size in $size-types{
+    .sdf-form-group.sdf-#{$size},
+    .sdf-form.sdf-#{$size} .sdf-form-group{
+        margin-bottom: size-get($size, height) / 2;
+        label{
+            font-size: size-get($size, font-size);
+        }
+        label + .sdf-input,
+        label + .sdf-input-group,
+        label + .sdf-form-group,
+        label + .sdf-fieldset{
+             margin-top: size-get($size, font-size) / 2;
+        }
+    }
+}
+
+// input sizes
+@each $size in $size-types{
+    input.sdf-input.sdf-#{$size},
+    select.sdf-input.sdf-#{$size},
+    .sdf-form-group.sdf-#{$size}>input.sdf-input,
+    .sdf-form-group.sdf-#{$size}>select.sdf-input,
+    .sdf-input-group.sdf-#{$size}>input.sdf-input,
+    .sdf-input-group.sdf-#{$size}>select.sdf-input,
+    .sdf-form.sdf-#{$size} input.sdf-input,
+    .sdf-form.sdf-#{$size} select.sdf-input{
+        height: size-get($size, height);
+        //line-height: size-get($size, height);
+        padding: 0 size-get($size, padding);
+        font-size: size-get($size, font-size);
+    }
+}

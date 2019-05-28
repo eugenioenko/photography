@@ -1,0 +1,38 @@
+/**
+ * Breadcrumbs
+ */
+.sdf-breadcrumbs{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	@include sdf-flex();
+    @include sdf-flex-flow-row-wrap();
+	&>li{
+		display: inline-block;
+		margin-right: $breadcrumbs-item-margin;
+		&:after{
+			content: $breadcrumbs-separator;
+			display: inline-block;
+			margin-left: $breadcrumbs-item-margin;
+		}
+		&:last-child{
+			&:after{
+				display: none;
+			}
+		}
+		&>a{
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+	&>li.active,
+	&>li.active>a,
+	&>li>a.active{
+		font-weight: 500;
+	}
+	&[sdf-separator=">"]>li:after{ content: ">"; }
+	&[sdf-separator="<"]>li:after{ content: "<"; }
+	&[sdf-separator="/"]>li:after{ content: "/"; }
+	&[sdf-separator="|"]>li:after{ content: "|"; }
+	&[sdf-separator="\\"]>li:after{ content: "\\"; }
+}

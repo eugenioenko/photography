@@ -1,0 +1,64 @@
+/**
+* Buttons
+*/
+.sdf-button{
+    background-image: $button-background-image;
+    background-color: color-get(default, background);
+    border: 1px solid color-get(default, contrast);
+    border-radius: $button-border-radius;
+    color: $font-color;
+    position: relative;
+    margin: 0;
+    height: size-get(normal, height);
+    //line-height: size-get(normal, height);
+    line-height: 1;
+    min-width: size-get(normal, min-width);
+    padding: 0 size-get(normal, padding);
+    font-size: size-get(normal, font-size);
+    display: inline-block;
+    font-family: $font-family;
+    font-weight: $button-font-weight;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    overflow: hidden;
+    will-change: color, background-color, box-shadow;
+    box-shadow: $button-focus-boxshadow transparent;
+    transition: color $transition-normal, background-color $transition-normal, box-shadow $transition-long;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    &:hover, &:active, &:focus{
+        background-color: color-get(default, contrast);
+        color: color-get(default, background);
+    }
+    &:focus{
+        box-shadow: $button-focus-boxshadow rgba(color-get(primary, background), $button-focus-opacity);
+    }
+    [disabled]{
+        opacity: 0.5;
+    }
+}
+
+.sdf-btn-group{
+    @include sdf-flex();
+    @include sdf-flex-flow-row-wrap();
+    &>.sdf-button{
+        border-radius: 0;
+        margin-right: 2px;
+        &:focus{
+            z-index: 1;
+        }
+    }
+    &>.sdf-button:first-child{
+        border-top-left-radius: $button-group-border-radius;
+        border-bottom-left-radius: $button-group-border-radius;
+    }
+    &>.sdf-button:last-child{
+        border-top-right-radius: $button-group-border-radius;
+        border-bottom-right-radius: $button-group-border-radius;
+    }
+    //@include clearfix;
+}

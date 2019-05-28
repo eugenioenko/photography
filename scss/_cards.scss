@@ -1,0 +1,30 @@
+/**
+ * Cards
+ */
+
+.sdf-card{
+   @include sdf-flex();
+   @include sdf-flex-direction-column();
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    border-radius: 2px;
+    box-sizing: border-box;
+    .sdf-card-header, .sdf-card-body, .sdf-card-footer{
+        padding: $grid-gutter/2;
+        &>*:last-child{
+            margin-bottom: 0;
+        }
+    }
+    .sdf-card-body{
+        &>.sdf-card-title, &>h1:first-child, &>h2:first-child, &>h3:first-child, &>h4:first-child {
+            margin-top: 0;
+        }
+    }
+    .sdf-card-header{
+        h1, h2, h3, h4, .sdf-card-title{
+            margin: 0;
+        }
+    }
+}
+

@@ -1,0 +1,89 @@
+/**
+ * Side Menu
+ */
+
+[sdf-menu]{
+    position: absolute;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    z-index: 10;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform, -webkit-transform;
+    transition: transform $transition-normal, -webkit-transform $transition-normal;
+    visibility: hidden;
+    background-color: color-get(default, background);
+    color: color-get(default, font);
+}
+[sdf-menu="left"], [sdf-menu="right"], [sdf-menu="left-full"], [sdf-menu="right-full"]{
+    top: 0;
+    bottom: 0;
+    max-width: 100%;
+    &[aria-hidden="false"]{
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+[sdf-menu="left"], [sdf-menu="right"]{
+    width: $sidemenu-width;
+}
+[sdf-menu="left"]{
+    left: 0;
+    &[aria-hidden="true"]{
+        -webkit-transform: translate3d(-$sidemenu-width, 0, 0);
+        transform: translate3d(-$sidemenu-width, 0, 0);
+    }
+}
+[sdf-menu="right"]{
+    right: 0;
+    &[aria-hidden="true"]{
+        -webkit-transform: translate3d($sidemenu-width, 0, 0);
+        transform: translate3d($sidemenu-width, 0, 0);
+    }
+}
+[sdf-menu="left-full"], [sdf-menu="right-full"]{
+    width: 100%;
+}
+[sdf-menu="left-full"]{
+    left: 0;
+    &[aria-hidden="true"]{
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+[sdf-menu="right-full"]{
+    right: 0;
+    &[aria-hidden="true"]{
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+[sdf-menu="top"], [sdf-menu="bottom"]{
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 100%;
+}
+[sdf-menu="top"]{
+    top: 0;
+    &[aria-hidden="true"]{
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    &[aria-hidden="false"]{
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+[sdf-menu="bottom"]{
+    bottom: 0;
+    &[aria-hidden="true"]{
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    &[aria-hidden="false"]{
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}

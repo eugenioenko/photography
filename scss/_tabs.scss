@@ -1,0 +1,61 @@
+/**
+ * Tabs
+ */
+.sdf-tab-view{
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: $tab-view-min-height;
+    border-left: 1px solid rgba(color-get(default, contrast), $border-opacity);
+    border-right: 1px solid rgba(color-get(default, contrast), $border-opacity);
+    border-bottom: 1px solid rgba(color-get(default, contrast), $border-opacity);
+    border-bottom-left-radius: $tab-view-border-radius;
+    border-bottom-right-radius: $tab-view-border-radius;
+}
+.sdf-tab-list{
+    @include sdf-flex();
+    @include sdf-flex-flow-row-nowrap();
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    border-bottom: 1px solid rgba(color-get(default, contrast), $border-opacity);
+    background-color: color-get(default, background);
+    color: color-get(default, font);
+    .sdf-list-item{
+        @include sdf-flex();
+        @include sdf-horizontal-center();
+        @include sdf-vertical-center();
+        flex: 0 0 auto;
+        cursor: pointer;
+        position: relative;
+        padding: $tab-item-padding;
+        border-top-left-radius: $tab-group-border-radius;
+        border-top-right-radius: $tab-group-border-radius;
+        background-color: inherit;
+        color: inherit;
+        border: 1px solid transparent;
+        border-bottom: none;
+        text-decoration: none;
+        &[aria-expanded="true"]{
+            border-color: rgba(color-get(default, contrast), $border-opacity);
+            &:after{
+                content: " ";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -1px;
+                height: 1px;
+                background-color: inherit;
+            }
+        }
+    }
+}
+
+.sdf-tab{
+    display: none;
+    &[aria-hidden="true"]{
+        display: none;
+    }
+    &[aria-hidden="false"]{
+        display: block;
+    }
+}

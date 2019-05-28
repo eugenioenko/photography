@@ -1,0 +1,26 @@
+/**
+ * Globals
+ */
+ html{
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: $font-size;
+    line-height: $font-line-height;
+}
+*, :before, :after{
+	box-sizing: border-box;
+}
+body{
+    -ms-overflow-style: scrollbar;
+    margin: 0;
+}
+::-moz-selection {
+    background: #9dd9ff;
+    text-shadow: none
+}
+
+::selection {
+    background: #9dd9ff;
+    text-shadow: none
+}
+

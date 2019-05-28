@@ -1,0 +1,63 @@
+/**
+ * Side Menu
+ */
+
+.sdf-layout-wrapper{
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+.sdf-wrapper{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sdf-layout-menu{
+    background-color: color-get(default, background);
+    position: fixed;
+    width: $sidemenu-width;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+.sdf-layout-content{
+    background-color: color-get(default, background);
+    margin-top: 50px;
+    min-height: calc(100% - 50px);
+    box-sizing: border-box;
+    position: relative;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform, -webkit-transform;
+    transition: transform $transition-normal, -webkit-transform $transition-normal;
+    &[sdf-state="menu"]{
+        -webkit-transform: translate3d(-$sidemenu-width, 0, 0);
+        transform: translate3d(-$sidemenu-width, 0, 0);
+    }
+}
+
+.sdf-layout-navbar{
+    background-color: color-get(default, background);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform, -webkit-transform;
+    transition: transform $transition-normal, -webkit-transform $transition-normal;
+    &[sdf-state="menu"]{
+        -webkit-transform: translate3d(-$sidemenu-width, 0, 0);
+        transform: translate3d(-$sidemenu-width, 0, 0);
+    }
+    box-sizing: border-box;
+}
+.sdf-layout-menu-toggle{
+    font-size: 1.5rem;
+    cursor: pointer;
+}

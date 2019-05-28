@@ -1,0 +1,174 @@
+// namespace
+$sdf: "sdf";
+//grid
+$grid-cols: 12;          // default cols count
+$grid-gutter: 2rem;     // default spacing between cells/cols
+$grid-lg-width: 1152px;
+$grid-md-width: 948px;
+$grid-sm-width: 756px;
+
+
+$col-types: "xs", "sm";
+$media-max-df: 549px;
+$media-min-xs: 550px;
+$media-max-xs: 767px;
+$media-min-sm: 992px;
+$media-max-sm: 1199px;
+$media-min-md: 992px;
+$media-max-md: 1199px;
+$media-min-lg: 1200px;
+
+$auto-min-width: 140px;
+
+$grid : (
+   (
+        cols: $grid-cols,
+        media: $media-min-xs,
+        prefix: "xs",
+        width: null
+    ),(
+        cols: $grid-cols,
+        media: $media-min-sm,
+        prefix: "sm",
+        width: $grid-sm-width
+    ),(
+        cols: $grid-cols,
+        media: $media-min-md,
+        prefix: "md",
+        width: $grid-md-width
+    ),(
+        cols: $grid-cols,
+        media: $media-min-lg,
+        prefix: "lg",
+        width: $grid-lg-width
+    )
+);
+
+// colors
+$color-multiplier: 10%;
+$font-color-multiplier: 15%;
+$color-types: "default","light", "dark";
+$colors: (
+    default: (
+        background: #fff,
+        contrast:   #6c6d6f
+    ),
+    primary: (
+        background: #1f8dd6,
+        contrast:   #fff
+    ),
+    light: (
+        background: #f3f3f3,
+        contrast:   #545454
+    ),
+    dark: (
+        background: #343E40,
+        contrast:   #fff
+    )
+);
+
+$body-background-color: #fff;
+
+// border radius
+$border-radius: 1rem / 4;
+$button-border-radius: $border-radius;
+$button-group-border-radius: $border-radius;
+$tab-group-border-radius: $border-radius;
+$tab-view-border-radius: $border-radius;
+$input-border-radius: $border-radius;
+$list-menu-border-radius: $border-radius;
+$list-addon-border-radius: $border-radius;
+
+// borders
+$border-opacity: 0.5;
+
+
+// typography
+$font-family: "KoHo", sans-serif;
+$font-color: #3c3d4f;
+$font-size: 16px;
+$font-paragraph-size: 1.125rem;
+$font-weight: 300;
+$font-line-height: 1.2;
+$font-size-small: 0.75%;
+$font-paragraph-margin: 0 0 0.75rem 0;
+$font-paragraph-max-width: 40rem;
+$font-heading-margin: 0 0 0.5rem 0;
+$font-heading-weight: 300;
+$font-heading-h1-font-size: 3.157rem;
+$font-heading-h2-font-size: 2.369rem;
+$font-heading-h3-font-size: 1.777rem;
+$font-heading-h4-font-size: 1.333rem;
+
+// sizes of buttons and inputs
+$size-types: "small", "normal", "big";
+$base-size: 1rem / 2;
+$sizes: (
+    small: (
+        height: 1.5 * 2.25 * $base-size,
+        padding: 1.5 * $base-size,
+        font-size: 1.9 * $base-size,
+        min-width: 1.5 * 2 * $base-size
+    ),
+    normal: (
+        height: 2 * 2.25 * $base-size,
+        padding: 2 * $base-size,
+        font-size: 2 * $base-size,
+        min-width: 2 * 2 * $base-size
+    ),
+    big: (
+        height: 2.5 * 2.25 * $base-size,
+        padding: 2.5 * $base-size,
+        font-size: 2.5 * $base-size,
+        min-width: 2.5 * 2 * $base-size
+    )
+);
+$button-focus-boxshadow: 0 0 0 2px;
+$button-focus-opacity: 0.5;
+$button-font-weight: 400;
+$button-background-image: none;
+//forms
+$forms-border-opacity: 0.7;
+$forms-font-weight: 400;
+$forms-placeholder-font-weight: 300;
+$forms-placeholder-color-opacity: 0.7;
+$form-group-label-margin-bottom: 10px;
+$form-input-addon-padding: 0 10px;
+$form-input-addon-font-weight: 400;
+
+// breadcrumbs
+$breadcrumbs-separator: "/";
+$breadcrumbs-item-margin: 0.5rem;
+// badge
+$badge-border-radius: $border-radius;
+$badge-font-size: 100%;
+$badge-font-weight: 700;
+$badge-margin: 4px;
+$badge-padding: 0 4px;
+
+
+// alerts
+$alert-width: 420px;
+$alert-border-radius: $border-radius;
+
+
+// transitions
+$transition-normal:  350ms ease-in-out;
+$transition-short: 250ms ease-in-out;
+$transition-long: 450ms ease-in-out;
+
+
+
+// dropdowns
+$dropdown-margin: $grid-gutter / 4;
+$dropdown-z-index: 100;
+
+// side menus
+$sidemenu-width: 260px;
+
+// tabs
+$tab-item-padding: $grid-gutter/4 $grid-gutter/2;
+$tab-view-min-height: 100px;
+
+// tables
+$table-stripes-opacity: 0.15;

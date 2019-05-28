@@ -1,0 +1,28 @@
+{
+  "name": "photography",
+  "version": "1.0.0",
+  "description": "Photography Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "start": "sass --watch scss:css --style compressed --precision 10",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eugenioenko/photography.git"
+  },
+  "keywords": [
+    "javascript",
+    "sdf",
+    "css",
+    "photography"
+  ],
+  "author": "eugenioenko",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/eugenioenko/photography/issues"
+  },
+  "homepage": "https://github.com/eugenioenko/photography#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}

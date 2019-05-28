@@ -1,0 +1,24 @@
+.sdf-addon{
+    @include sdf-flex();
+    @include sdf-horizontal-center;
+    @include sdf-vertical-center;
+    box-sizing: border-box;
+    text-align: center;
+    padding: $form-input-addon-padding;
+    font-weight: $form-input-addon-font-weight;
+    font-size: size-get(normal, font-size);
+    flex: none;
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    &.sdf-icon{
+        height: size-get(normal, height);
+        min-width: size-get(normal, height);
+        padding: 0;
+        &.sdf-round{
+            border-radius: 50%;
+        }
+        &.sdf-square{
+            border-radius: 0;
+        }
+    }
+}

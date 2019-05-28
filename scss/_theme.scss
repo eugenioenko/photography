@@ -1,0 +1,183 @@
+/**
+ * Theme
+ */
+// color themes from $color-types variable
+ @each $color in $color-types{
+    .sdf-#{$color}{
+        background-color: color-get($color, background);
+        color: color-get($color, contrast);
+        border-color: rgba(color-get($color, contrast), $border-opacity);
+        &.sdf-hover:hover{
+            background-color: darken(saturate(color-get($color, background), $color-multiplier*3), $color-multiplier);
+        }
+        // all standard componentes
+        &.sdf-alert, &[sdf-menu] {
+            background-color: color-get($color, background);
+            color: color-get($color, contrast);
+        }
+    }
+    .sdf-#{$color}-inverse{
+        background-color: color-get($color, contrast);
+        color: color-get($color, background);
+    }
+    .sdf-#{$color}-font{
+        @if color-get($color, type) == "normal" {
+            color: darken(color-get($color, contrast), $font-color-multiplier);
+        } @else {
+            color: darken(color-get($color, background), $font-color-multiplier);
+        }
+    }
+}
+// buttons
+.sdf-button{
+    @each $color in $color-types{
+        &.sdf-#{$color}{
+            &:hover,
+            &:focus{
+                background-color: darken(saturate(color-get($color, background), $color-multiplier*3), $color-multiplier);
+            }
+            &:focus{
+                box-shadow: $button-focus-boxshadow rgba(color-get($color, background), 0.5)
+            }
+        }
+    }
+}
+// outline buttons
+.sdf-button.sdf-outline{
+    @each $color in $color-types{
+        &.sdf-#{$color}{
+            background-color: transparent;
+            border: 1px solid color-get($color, background);
+            color: color-get($color, background);
+            &:hover, &:active, &:focus{
+                background-color: color-get($color, background);
+                border: 1px solid color-get($color, background);
+                color: color-get($color, contrast);
+            }
+        }
+        &.sdf-#{$color}-inverse{
+            background-color: transparent;
+            border: 1px solid color-get($color, contrast);
+            color: color-get($color, contrast);
+        }
+    }
+}
+
+// lists
+.sdf-list, .sdf-list-horizontal{
+    @each $color in $color-types{
+        &.sdf-#{$color}>li,
+        &.sdf-#{$color}>.sdf-list-item{
+            &:hover, &.active{
+                background-color: mix(color-get($color, background), color-get($color, contrast), 80%);
+                color: color-get($color, contrast);
+            }
+        }
+    }
+}
+// tabs
+@each $color in $color-types{
+    .sdf-#{$color} {
+        &.sdf-tab-view{
+            border-color: rgba(color-get($color, contrast), $border-opacity);
+        }
+        &.sdf-tab-list{
+            border-bottom: 1px solid rgba(color-get($color, contrast), $border-opacity);
+            background-color: color-get($color, background);
+            color: color-get($color, font);
+            .sdf-list-item{
+                background-color: color-get($color, background);
+                color: color-get($color, contrast);
+                &[aria-expanded="true"]{
+                    border-color: rgba(color-get($color, contrast), $border-opacity);
+                }
+            }
+        }
+    }
+}
+
+// alerts and menus
+
+.sdf-border{
+    @each $color in $color-types{
+        &.sdf-#{$color}{
+            border: 1px solid rgba(color-get($color, contrast), $border-opacity);
+        }
+    }
+}
+
+// tables
+.sdf-table.sdf-striped{
+    @each $color in $color-types{
+        &.sdf-#{$color}{
+            tr:nth-child(even){
+                background-color: rgba(color-get($color, contrast), $table-stripes-opacity);
+            }
+        }
+    }
+}
+
+@each $color in $color-types{
+    .sdf-#{$color}{
+        //make theme modifier when button is the same as block theme
+        .sdf-button.sdf-#{$color}{
+            background-color: darken(color-get($color, background), $color-multiplier);
+            &.sdf-hover, &.sdf-button:hover, &.sdf-button:focus{
+                background-color: color-get($color, contrast);
+                color: color-get($color, background);
+            }
+        }
+        .sdf-button.sdf-outline.sdf-#{$color}{
+            border: 1px solid color-get($color, contrast);
+            color: color-get($color, contrast);
+        }
+        // make theme modifier when input is inside color block
+        .sdf-input{
+            background-color: color-get($color, background);
+            color: color-get($color, contrast);
+            @include input-placeholder(color-get($color, contrast));
+            &:focus{
+                @if $color == dark or $color == light or $color == default {
+                    border-color: color-get(primary, background);
+                } @else {
+                    border-color: complement(color-get($color, background));
+                }
+            }
+            &.sdf-focus-outline-2x:focus{
+                @if $color == dark or $color == light or $color == default {
+                    box-shadow: 0 0 0 1px rgba(color-get(primary, background), 0.5);
+                } @else {
+                    box-shadow: 0 0 0 1px rgba(complement(color-get($color, background)), 0.5)
+                }
+            }
+            &.sdf-focus-outline-3x:focus{
+                @if $color == dark or $color == light or $color == default {
+                    box-shadow: 0 0 0 2px rgba(color-get(primary, background), 0.5);
+                } @else {
+                    box-shadow: 0 0 0 2px rgba(complement(color-get($color, background)), 0.5)
+                }
+            }
+            &.sdf-focus-outline-4x:focus{
+                @if $color == dark or $color == light or $color == default {
+                    box-shadow: 0 0 0 3px rgba(color-get(primary, background), 0.5);
+                } @else {
+                    box-shadow: 0 0 0 3px rgba(complement(color-get($color, background)), 0.5)
+                }
+            }
+        }
+        // make theme modifier when input addon is inside color block
+        .sdf-addon{
+            border-color: rgba(color-get($color, contrast), $forms-border-opacity)!important;
+        }
+        .sdf-input{
+            border-color: rgba(color-get($color, contrast), $forms-border-opacity);
+        }
+        // glow color
+        .sdf-glow{
+            box-shadow: 0 2px 2px 0 rgba(color-get($color, contrast),.15), 0 3px 1px -2px rgba(color-get($color, contrast),.2), 0 1px 5px 0 rgba(color-get($color, contrast),.1);
+        }
+    }
+}
+
+
+

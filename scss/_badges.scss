@@ -1,0 +1,39 @@
+/**
+ * Badges
+ */
+.sdf-badge{
+    color: color-get(default, background);
+    background-color: color-get(default, contrast);
+    display: inline-block;
+    padding: $badge-padding;
+    margin-left: $badge-margin;
+    font-size: $badge-font-size;
+    font-weight: $badge-font-weight;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: $badge-border-radius;
+    font-style: normal;
+    font-family: $font-family;
+    &.sdf-badge-left{
+        margin-left: 0;
+        margin-right: $badge-margin;
+    }
+}
+h1 .sdf-badge{ padding: 0 $font-heading-h1-font-size / 3; margin-left: $font-heading-h1-font-size / 3; }
+h2 .sdf-badge{ padding: 0 $font-heading-h2-font-size / 3; margin-left: $font-heading-h2-font-size / 3; }
+h3 .sdf-badge{ padding: 0 $font-heading-h3-font-size / 3; margin-left: $font-heading-h3-font-size / 3; }
+h4 .sdf-badge{ padding: 0 $font-heading-h4-font-size / 3; margin-left: $font-heading-h4-font-size / 3; }
+
+h1 .sdf-badge.sdf-badge-left{ margin-right: $font-heading-h1-font-size / 3; }
+h2 .sdf-badge.sdf-badge-left{ margin-right: $font-heading-h2-font-size / 3; }
+h3 .sdf-badge.sdf-badge-left{ margin-right: $font-heading-h3-font-size / 3; }
+h4 .sdf-badge.sdf-badge-left{ margin-right: $font-heading-h4-font-size / 3; }
+
+.sdf-icon{
+    position: relative;
+    .sdf-badge{
+        position: absolute;
+        top: -4px;
+        right: -7px;
+    }
+}

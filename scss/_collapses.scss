@@ -1,0 +1,16 @@
+/**
+ * Dropdowns
+ */
+.sdf-collapse{
+	display: none;
+	overflow-y: hidden;
+	&[aria-hidden="true"]{
+		display: none;
+	}
+	&[aria-hidden="false"]{
+		display: block;
+	}
+}
+[sdf-collapse-toggle]{
+	cursor: pointer;
+}

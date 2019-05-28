@@ -1,0 +1,25 @@
+.sdf-table{
+	border-spacing: 0;
+    border-collapse: collapse;
+    color: inherit;
+    border-color: inherit;
+    width: 100%;
+	td, th{
+		padding: $grid-gutter/4 $grid-gutter/2;
+	}
+	th{
+		text-align: left;
+	}
+	tr{
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		&:last-child{
+			border-bottom: 0;
+		}
+	}
+	&.sdf-striped{
+		tr:nth-child(even){
+			background-color: rgba(color-get(default, contrast), $table-stripes-opacity);
+		}
+	}
+}

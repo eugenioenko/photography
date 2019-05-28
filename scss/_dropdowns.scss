@@ -1,0 +1,59 @@
+/**
+ * Dropdowns
+ */
+.sdf-dropdown{
+	position: relative;
+}
+[sdf-dropdown-menu]{
+	display: none;
+	position: absolute;
+	min-width: 180px;
+	z-index: $dropdown-z-index;
+	will-change: transform, -webkit-transform;
+	transition: transform $transition-normal, -webkit-transform $transition-normal;
+
+}
+[sdf-dropdown-menu="top-left"]{
+	top: calc(100% + #{$grid-gutter/4});
+	left: 0; 
+}
+[sdf-dropdown-menu="top-right"]{
+	top: calc(100% + #{$grid-gutter/4});
+	right: 0;
+}
+[sdf-dropdown-menu="top-right"],
+[sdf-dropdown-menu="top-left"]{
+	-webkit-transform-origin: center top;
+	transform-origin: center top;
+	&[aria-hidden="true"]{
+		-webkit-transform: rotateX(90deg);
+		transform: rotateX(90deg);
+	}
+	&[aria-hidden="false"]{
+		-webkit-transform: rotateX(0);
+		transform: rotateX(0);
+	}
+}
+
+[sdf-dropdown-menu="bottom-left"]{
+	bottom: calc(100% + #{$grid-gutter/4});
+	left: 0;
+}
+[sdf-dropdown-menu="bottom-right"]{
+	bottom: calc(100% + #{$grid-gutter/4});
+	right: 0;
+}
+[sdf-dropdown-menu="bottom-right"],
+[sdf-dropdown-menu="bottom-left"]{
+	-webkit-transform-origin: center bottom;
+	transform-origin: center bottom;
+	
+	&[aria-hidden="true"]{
+		-webkit-transform: rotateX(90deg);
+		transform: rotateX(90deg);
+	}
+	&[aria-hidden="false"]{
+		-webkit-transform: rotateX(0);
+		transform: rotateX(0);
+	}
+}
